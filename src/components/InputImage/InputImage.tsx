@@ -46,9 +46,11 @@ const InputImage: React.FC<InputImageProps> = ({ onImageSelect, className, previ
             ref={inputRef}  
             style={{ display: "none" }}
             />
-
-            <Button variant='primary' icon={<FaUpload/>} iconPosition='right' onClick={handleClick} className={styles.button}>Select image</Button>
-            <Button variant='danger' icon={<FaX/>} iconPosition='right' onClick={handleImageRemove} className={styles.button} outline={true}>Remove image</Button>
+            <div className={styles["input-buttons"]}>
+                <Button variant='primary' icon={<FaUpload/>} iconPosition='right' onClick={handleClick} className={styles.button}>Select image</Button>
+                <Button variant='danger' icon={<FaX/>} iconPosition='right' onClick={handleImageRemove} className={styles.button} outline={true}>Remove image</Button>
+            </div>
+            
 
             {preview && (
                 <img

@@ -1,5 +1,6 @@
 @use './styles/base/reset.scss';
 @use './styles/base/typography.scss';
+@use './styles/variables/spacing.scss' as *;
 
 .app {
     display: flex;
@@ -7,4 +8,5 @@
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    gap: space(m);
 }
