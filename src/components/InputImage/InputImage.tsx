@@ -38,10 +38,14 @@ const InputImage: React.FC<InputImageProps> = ({ onImageSelect, className, previ
             } 
         }
 
+        const handleImageClick = () => {
+            console.log('image clicked')
+        }
+
     return (
         <>
             <input type="file" 
-            accept="image/*" 
+            accept="image/jpg, image/jpeg, image/png" 
             className={className}
             onChange={handleImageChange}
             ref={inputRef}  
@@ -58,6 +62,7 @@ const InputImage: React.FC<InputImageProps> = ({ onImageSelect, className, previ
                 src={preview}
                 alt="Preview"
                 className={styles["image-preview"]}
+                onClick = {handleImageClick}
                 style={{ width: previewWidth, height: previewHeight, objectFit: 'cover', marginTop: '10px' }}
                 />
             )}
