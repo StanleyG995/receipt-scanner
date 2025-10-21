@@ -4,19 +4,18 @@
 
 .base {
     align-items: center;
-    background-color: color($neutral, 200);
-    border: 1px solid color($neutral, 800);
+    background-color: color($neutral, 600);
+    border: 1px solid transparent;
     border-radius: radius(s);
-    color: color($neutral, 800);
+    color: color($neutral, 100);
     cursor: pointer;
     display: flex;
     justify-content: center;
-    margin: space(m);
     padding: space(s) space(m);
     transition: background-color .3s ease-in-out, color .3s ease-in-out;
 
     &:hover {
-        background-color: color($neutral, 100);
+        background-color: color($neutral, 500);
     }
 
     svg {
@@ -34,6 +33,16 @@
     }
 }
 
+.secondary {
+    background-color: color($secondary, 700);
+    border-color: transparent;
+    color: color($neutral, 100);
+    
+    &:hover {
+        background-color: color($secondary, 600);
+    }
+}
+
 .success {
     background-color: color($success, 600);
     border-color: transparent;
@@ -41,5 +50,100 @@
     
     &:hover {
         background-color: color($success, 500);
+    }
+}
+
+.warning {
+    background-color: color($warning, 600);
+    border-color: transparent;
+    color: color($neutral, 100);
+    
+    &:hover {
+        background-color: color($warning, 500);
+    }
+}
+
+.danger {
+    background-color: color($danger, 600);
+    border-color: transparent;
+    color: color($neutral, 100);
+    
+    &:hover {
+        background-color: color($danger, 500);
+    }
+}
+
+.outline {
+    background-color: transparent;
+    border: 1px solid currentColor;
+
+    color: color($neutral, 800);
+
+    &:hover {
+        background-color: color($neutral, 600);
+        border: 1px solid transparent;
+        color: color($neutral, 100);
+    }
+   
+
+    &.primary {
+        color: color($primary, 600);
+
+        &:hover {
+            background-color: color($primary, 600);
+            color: color($neutral, 100);
+        }
+    }
+
+    &.secondary {
+        color: color($secondary, 700);
+
+        &:hover {
+            background-color: color($secondary, 700);
+            color: color($neutral, 100);
+        }
+    }
+
+    &.success {
+        color: color($success, 600);
+
+        &:hover {
+            background-color: color($success, 600);
+            color: color($neutral, 100);
+        }
+    }
+
+    &.warning {
+        color: color($warning, 600);
+
+        &:hover {
+            background-color: color($warning, 600);
+            color: color($neutral, 100);
+        }
+    }
+
+    &.danger {
+        color: color($danger, 600);
+
+        &:hover {
+            background-color: color($danger, 600);
+            color: color($neutral, 100);
+        }
+    }
+}
+
+.left {
+    svg {
+        order: 0;
+        margin-right: space(s);
+        margin-left: 0;
+    }
+}
+
+.right {
+    svg {
+        order: 1;
+        margin-left: space(s);
+        margin-right: 0;
     }
 }
