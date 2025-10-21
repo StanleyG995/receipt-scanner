@@ -8,6 +8,7 @@ function App() {
       <Button 
       variant='primary'
       outline={false}
+      onClick={() => console.log('Działa!')}
       >Accept</Button>
     </>
   )

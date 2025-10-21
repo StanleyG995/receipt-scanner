@@ -1,6 +1,6 @@
 export interface ButtonProps {
     children: React.ReactNode
-    onclick?: (e: React.MouseEvent<HTMLButtonElement>) => void
+    onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void
 
     variant?: 'base' | 'primary' | 'secondary' | 'danger' | 'warning' | 'success'
     icon?: React.ReactNode

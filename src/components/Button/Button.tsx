@@ -2,7 +2,7 @@ import React from 'react'
 import type { ButtonProps } from './Button.types'
 import styles from './Button.module.scss'
 
-const Button: React.FC<ButtonProps> = ( {children, onclick, className, variant = 'base', icon, iconPosition = 'left', outline=false} ) => {
+const Button: React.FC<ButtonProps> = ( {children, onClick, className, variant = 'base', icon, iconPosition = 'left', outline=false} ) => {
     
     const classes = [
         styles.base,
@@ -16,7 +16,7 @@ const Button: React.FC<ButtonProps> = ( {children, onclick, className, variant =
     return (
         <button 
             className = {classes} 
-            onClick = {onclick}
+            onClick = {onClick}
             > 
                 { icon }
                 { children }        
