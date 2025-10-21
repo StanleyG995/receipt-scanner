@@ -1,7 +1,14 @@
 @use '../../styles/variables/spacing' as *;
+@use '../../styles/variables/colors' as *;
+@use '../../styles/variables/radius' as *;
 
 .input-buttons {
     display: flex;
     flex-direction: row;
     gap: space(m);
+}
+
+.image-preview {
+    border: 3px solid color($primary, 600);
+    border-radius: radius(m);
 }

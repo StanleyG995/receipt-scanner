@@ -5,11 +5,12 @@ import styles from './InputImage.module.scss'
 import Button from '../Button/Button'  
 import { FaUpload } from "react-icons/fa6";
 import { FaX } from "react-icons/fa6";
+import placeholderImage from '../../assets/img/preview-placeholder.webp';
 
 const InputImage: React.FC<InputImageProps> = ({ onImageSelect, className, previewWidth = 200, previewHeight = 200 }) => {
 
 
-    const [preview, setPreview] = useState<string | null>(null);
+    const [preview, setPreview] = useState<string | null>(placeholderImage);
 
     const inputRef = useRef<HTMLInputElement | null>(null);
 
@@ -30,7 +31,7 @@ const InputImage: React.FC<InputImageProps> = ({ onImageSelect, className, previ
         }   }
 
         const handleImageRemove = () => {
-            setPreview(null);                
+            setPreview(placeholderImage);                
             onImageSelect(null);             
             if (inputRef.current) {
                 inputRef.current.value = '';
@@ -56,6 +57,7 @@ const InputImage: React.FC<InputImageProps> = ({ onImageSelect, className, previ
                 <img
                 src={preview}
                 alt="Preview"
+                className={styles["image-preview"]}
                 style={{ width: previewWidth, height: previewHeight, objectFit: 'cover', marginTop: '10px' }}
                 />
             )}
