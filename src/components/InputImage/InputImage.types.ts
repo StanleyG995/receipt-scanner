@@ -1,5 +1,5 @@
 export interface InputImageProps {
-    onImageSelect: (file: File) => void
+    onImageSelect: (file: File | null) => void;
     className?: string
     previewWidth?: number
     previewHeight?: number

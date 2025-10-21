@@ -1,10 +1,9 @@
-import Button from './components/Button/Button'
 import InputImage from './components/InputImage/InputImage'
 
 function App() {
 
   return (
-    <>
+    <div className='app'>
       <h1>Receipt Scanner</h1>
 
       <InputImage 
@@ -13,7 +12,7 @@ function App() {
       previewWidth={300}
       previewHeight={300}
       />
-    </>
+    </div>
   )
 }
 

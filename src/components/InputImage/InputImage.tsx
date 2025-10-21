@@ -4,13 +4,14 @@ import type { InputImageProps} from './InputImage.types'
 import styles from './InputImage.module.scss'
 import Button from '../Button/Button'  
 import { FaUpload } from "react-icons/fa6";
+import { FaX } from "react-icons/fa6";
 
 const InputImage: React.FC<InputImageProps> = ({ onImageSelect, className, previewWidth = 200, previewHeight = 200 }) => {
 
 
     const [preview, setPreview] = useState<string | null>(null);
 
-     const inputRef = useRef<HTMLInputElement | null>(null);
+    const inputRef = useRef<HTMLInputElement | null>(null);
 
     const handleClick = () => {
         inputRef.current?.click();
@@ -28,6 +29,14 @@ const InputImage: React.FC<InputImageProps> = ({ onImageSelect, className, previ
 
         }   }
 
+        const handleImageRemove = () => {
+            setPreview(null);                
+            onImageSelect(null);             
+            if (inputRef.current) {
+                inputRef.current.value = '';
+            } 
+        }
+
     return (
         <>
             <input type="file" 
@@ -39,6 +48,7 @@ const InputImage: React.FC<InputImageProps> = ({ onImageSelect, className, previ
             />
 
             <Button variant='primary' icon={<FaUpload/>} iconPosition='right' onClick={handleClick} className={styles.button}>Select image</Button>
+            <Button variant='danger' icon={<FaX/>} iconPosition='right' onClick={handleImageRemove} className={styles.button} outline={true}>Remove image</Button>
 
             {preview && (
                 <img
