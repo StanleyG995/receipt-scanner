@@ -6,6 +6,7 @@ export interface ButtonProps {
     size?: 's' | 'm' | 'l'
     icon?: React.ReactNode
     className?: string
+    outline?: boolean
 
     disabled?: boolean
     type?: 'submit' | 'button' | 'reset'

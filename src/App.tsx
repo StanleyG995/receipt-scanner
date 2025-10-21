@@ -6,7 +6,10 @@ function App() {
     <>
       <h1>Receipt Scanner</h1>
       <Button 
-      variant='primary'>Button</Button>
+      variant='primary'
+      size='m'
+      outline={false}
+      >Accept</Button>
     </>
   )
 }
