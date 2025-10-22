@@ -1,27 +1,25 @@
 import { createWorker } from 'tesseract.js';
+
 export const recognizeText = async (
   file: File,
   onProgress?: (progress: number) => void
 ): Promise<string> => {
+  const worker: any = await createWorker();
 
-  const workerPromise = (createWorker as any)({
-    logger: (m: any) => {
-      if (onProgress && m.status === 'recognizing text') {
-        onProgress(m.progress);
-      }
-    },
-  });
-
-  let worker: any;
   try {
-    worker = await workerPromise;
-    await worker.load();
-    await worker.loadLanguage('pl');
-    await worker.initialize('pl');
+    // przypisujemy logger na workerze w main thread
+    if (onProgress) {
+      worker.setLogger((m: any) => {
+        if (m.status === "recognizing text") {
+          onProgress(m.progress);
+        }
+      });
+    }
 
-    const { data } = await worker.recognize(file);
+    const { data } = await worker.recognize(file, { lang: 'pol' }); // ustawiamy język tutaj
+
     return data.text;
   } finally {
-    if (worker) await worker.terminate();
+    await worker.terminate();
   }
 };

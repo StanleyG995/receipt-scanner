@@ -8,6 +8,8 @@ import { FaX } from "react-icons/fa6";
 import { FaReceipt } from "react-icons/fa6";
 import placeholderImage from '../../assets/img/preview-placeholder.webp';
 
+import { recognizeText } from "../../utils/helpers/ocrHelper";
+
 const InputImage: React.FC<InputImageProps> = ({ onImageSelect, className, previewWidth = 200, previewHeight = 200 }) => {
 
 
@@ -68,7 +70,15 @@ const InputImage: React.FC<InputImageProps> = ({ onImageSelect, className, previ
                 />
             )}
 
-            <Button variant='primary' icon={<FaReceipt/>} iconPosition='right' onClick={() => console.log('Analiza w toku...')} className={styles.button}>Analyze receipt</Button>
+            <Button variant='primary' icon={<FaReceipt/>} iconPosition='right' onClick={() => {
+      if (inputRef.current?.files?.[0]) {
+          recognizeText(inputRef.current.files[0])
+              .then(text => console.log('Recognized text:', text))
+              .catch(err => console.error(err));
+      } else {
+          console.warn('No file selected');
+      }
+  }} className={styles.button}>Analyze receipt</Button>
         </>
     )
 }
