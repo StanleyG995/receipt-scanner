@@ -1,0 +1,28 @@
+import { useState } from "react";
+import { recognizeText as recognizeTextHelper } from "./../helpers/ocrHelper";
+
+export const useOCR = () => {
+  const [text, setText] = useState<string>("");
+  const [progress, setProgress] = useState<number>(0);
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const recognizeText = async (file: File) => {
+    setLoading(true);
+    setText("");
+    setProgress(0);
+
+    try {
+      const result = await recognizeTextHelper(file, (p) => setProgress(Math.round(p * 100)));
+      setText(result);
+      return result;
+    } catch (err) {
+      console.error("OCR error:", err);
+      setText("Error recognizing text");
+      throw err;
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return { text, progress, loading, recognizeText };
+};

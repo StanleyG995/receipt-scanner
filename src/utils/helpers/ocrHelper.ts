@@ -16,7 +16,7 @@ export const recognizeText = async (
       });
     }
 
-    const { data } = await worker.recognize(file, { lang: 'pol' }); // ustawiamy język tutaj
+    const { data } = await worker.recognize(file, { lang: 'pl' }); 
 
     return data.text;
   } finally {
