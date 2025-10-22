@@ -5,6 +5,7 @@ import styles from './InputImage.module.scss'
 import Button from '../Button/Button'  
 import { FaUpload } from "react-icons/fa6";
 import { FaX } from "react-icons/fa6";
+import { FaReceipt } from "react-icons/fa6";
 import placeholderImage from '../../assets/img/preview-placeholder.webp';
 
 const InputImage: React.FC<InputImageProps> = ({ onImageSelect, className, previewWidth = 200, previewHeight = 200 }) => {
@@ -52,7 +53,7 @@ const InputImage: React.FC<InputImageProps> = ({ onImageSelect, className, previ
             style={{ display: "none" }}
             />
             <div className={styles["input-buttons"]}>
-                <Button variant='primary' icon={<FaUpload/>} iconPosition='right' onClick={handleClick} className={styles.button}>Select image</Button>
+                <Button variant='primary' icon={<FaUpload/>} iconPosition='right' onClick={handleClick} className={styles.button} outline={true}>Select image</Button>
                 <Button variant='danger' icon={<FaX/>} iconPosition='right' onClick={handleImageRemove} className={styles.button} outline={true}>Remove image</Button>
             </div>
             
@@ -66,6 +67,8 @@ const InputImage: React.FC<InputImageProps> = ({ onImageSelect, className, previ
                 style={{ width: previewWidth, height: previewHeight, objectFit: 'cover', marginTop: '10px' }}
                 />
             )}
+
+            <Button variant='primary' icon={<FaReceipt/>} iconPosition='right' onClick={() => console.log('Analiza w toku...')} className={styles.button}>Analyze receipt</Button>
         </>
     )
 }
